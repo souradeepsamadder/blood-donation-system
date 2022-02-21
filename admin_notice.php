@@ -282,7 +282,7 @@ $ti = date("H:i:s");
                             <th>Sl No</th>
                             <th>Admin name</th>
                             <th>Title</th>
-                            <th></th>
+                            <th>Body</th>
                             <th>Date</th>
                             <th>Rejected</th>
 
