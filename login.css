@@ -117,7 +117,7 @@ h1 {
   color: black;
   font-size: 13px;
   opacity: 1;
-  text:bold;
+  /* text:bold; */
 }
 
 .input-field {
@@ -206,3 +206,6 @@ form {
   border-radius: 100px 10px 10px 100px;
   text-align: center;
 }
+/* button{
+  color:#fff;
+} */
