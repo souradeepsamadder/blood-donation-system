@@ -8,8 +8,8 @@ function check_name() {
             // document.getElementById("btn").disabled = true;
         }
         else {
-            document.getElementById("name").style.borderColor = "white";
-            document.getElementById("lebel").style.color = "#3dcfd3";
+            document.getElementById("name").style.borderColor = "black";
+            document.getElementById("lebel").style.color = "black";
             // document.getElementById("btn").disabled = false;
 
         }
@@ -46,8 +46,8 @@ function check_phone_number() {
 
         }
         else {
-            document.getElementById("phno").style.borderColor = "white";
-            document.getElementById("lebel_ph").style.color = "white";
+            document.getElementById("phno").style.borderColor = "black";
+            document.getElementById("lebel_ph").style.color = "black";
 
         }
     }
@@ -102,8 +102,8 @@ function check_email() {
         }
     }
     else {
-        document.getElementById("email").style.borderColor = "white";
-        document.getElementById("lebel_email").style.color = "white";
+        document.getElementById("email").style.borderColor = "black";
+        document.getElementById("lebel_email").style.color = "black";
     }
 }
 function check_age() {
@@ -128,8 +128,8 @@ function check_age() {
         }
     }
     else {
-        document.getElementById("lebel_age").style.color = "white";
-        document.getElementById("age").style.borderColor = "white";
+        document.getElementById("lebel_age").style.color = "black";
+        document.getElementById("age").style.borderColor = "black";
     }
 
 }
@@ -146,7 +146,7 @@ function check_gender() {
 function check_blood_group() {
     let blood = document.getElementById("blood").value;
     // console.log(gender);
-    if (blood === "Select blood group") {
+    if (blood === "Select Blood Group") {
         document.getElementById("blood").style.borderColor = "red";
     }
     else {
@@ -166,8 +166,8 @@ function name_check() {
             // document.getElementById("btn").disabled = true;
         }
         else {
-            document.getElementById("name2").style.borderColor = "white";
-            document.getElementById("lebel2").style.color = "#3dcfd3";
+            document.getElementById("name2").style.borderColor = "black";
+            document.getElementById("lebel2").style.color = "black";
             // document.getElementById("btn").disabled = false;
 
         }
@@ -203,8 +203,8 @@ function phone_number_check() {
 
         }
         else {
-            document.getElementById("phno2").style.borderColor = "white";
-            document.getElementById("lebel_phno2").style.color = "white";
+            document.getElementById("phno2").style.borderColor = "black";
+            document.getElementById("lebel_phno2").style.color = "black";
 
         }
     }
@@ -259,8 +259,8 @@ function email_check() {
         }
     }
     else {
-        document.getElementById("email2").style.borderColor = "white";
-        document.getElementById("lebel_email2").style.color = "white";
+        document.getElementById("email2").style.borderColor = "black";
+        document.getElementById("lebel_email2").style.color = "black";
     }
 }
 function check_addr() {
@@ -271,8 +271,8 @@ function check_addr() {
         document.getElementById("lebel_add2").style.color = "green";
     }
     else {
-        document.getElementById("add").style.borderColor = "white";
-        document.getElementById("lebel_add2").style.color = "white";
+        document.getElementById("add").style.borderColor = "black";
+        document.getElementById("lebel_add2").style.color = "black";
 
     }
 

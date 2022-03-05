@@ -1,19 +1,22 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-style:serif ; */
 }
 
 body {
   height: 100%;
   width: 100%;
   background-color: #898989;
+  background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(./image/ven2.jpg);
 }
 
 header {
   padding: 15px;
-  background-color: #898989;
+  /* background-color: #898989; */
+  /* background-image:url(F:\xampp\htdocs\project\image\ven.jpg); */
+
   /* margin:10px 0px 0px 300px;   */
   /* width:100%; */
 }
@@ -25,41 +28,39 @@ header {
   transform: translate(-50%, -50%);
   height: 500px;
   width: 1000px;
-  background: linear-gradient(to left, #add8e6, #00008b);
+  background: linear-gradient(to left, #71cceb, #0871ebcb);
   border-radius: 20px;
 }
 
 .text {
   height: 40px;
-  width: 130px;
+  width: 250px;
   /* border: 2px solid red; */
   position: relative;
-  top: 30%;
-  left: 4%;
+  top: 20%;
+  left: 5%;
 }
 
 .cote {
   height: 30%;
-  width: 30%;
-  /* border: 2px solid red; */
+  width: 25%;
   position: relative;
-  top: 30%;
+  top: 50%;
   left: 2%;
-  /* overflow: hidden; */
-  /* align-content: center; */
+  text-align: center;
 }
 
 h1 {
   color: aliceblue;
+  /* margin: left 10px; */
 }
 
 .word {
   color: white;
 }
 
-
 .from {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   height: 450px;
   width: 650px;
   position: relative;
@@ -73,7 +74,7 @@ h1 {
 .login_form_header {
   position: relative;
   top: 20%;
-  left: 38%
+  left: 38%;
 }
 
 .login_positon {
@@ -81,9 +82,7 @@ h1 {
   left: 25%;
   /* transform: translate(-70%,-70%); */
   position: relative;
-
 }
-
 
 .register {
   position: relative;
@@ -97,16 +96,13 @@ h1 {
   /* padding-left: 15%; */
 }
 
-@media only screen and(max-width:1000px) {
+@media only screen and(max-width:600px) {
   header {
-      background-color: #3dcfd3;
-
-
+    background-color: #3dcfd3;
   }
 }
 
 #Login {
-
   margin: 200px 0px 0px 250px;
   width: 280px;
   padding-left: 28%;
@@ -133,7 +129,7 @@ h1 {
   background: transparent;
   letter-spacing: 1px;
   border-radius: 0px;
-  /* text-align: center; */
+  text-align: left;
 }
 
 .container {
@@ -142,6 +138,7 @@ h1 {
   height: 100%;
   align-items: space-around;
   justify-content: center;
+  /* border:1px solid #000; */
 }
 
 .userInput {
@@ -159,13 +156,14 @@ input {
   text-align: center;
   font-size: 1.1rem;
   background: #eef2f3;
+  border: 1px solid black;
 }
 
 button {
   width: 100px;
   height: 40px;
   margin: 25px auto 0px auto;
-  background: blue;
+  background: #0871ebcb;
   color: white;
   font-size: 1rem;
   border: none;
@@ -173,6 +171,7 @@ button {
   letter-spacing: 2px;
   cursor: pointer;
   display: inline;
+  /* opacity: .4; */
 }
 
 .register_btn {
@@ -205,7 +204,30 @@ form {
   padding: 10px;
   border-radius: 100px 10px 10px 100px;
   text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 /* button{
   color:#fff;
 } */
+img {
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 75px;
+  margin-left: 110px;
+  width: 200px;
+}
+
+.userInput {
+  padding-left: 40px;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em #000;
+  transform: translateY(-0.25em);
+}
+.corner{
+  text-align: left;
+}
