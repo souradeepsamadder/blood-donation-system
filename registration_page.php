@@ -40,23 +40,18 @@
                         <div id="donner" class="donner">
                             <form class="input-group" method="post" style="left: 600px;">
                                 <div class="input">
-                                    <input type="text" id="name" onkeyup="check_name(this.value)" class="input2" name="name" autocapitalize="off" required>
+                                    <input type="text" id="name" onkeyup="check_name(this.value)" class="input2"
+                                        name="name" autocapitalize="off" required>
                                     <label id="lebel" class="label">Name</label>
                                 </div>
                                 <div class="input">
-                                    <input type="text" id="age" class="input2" name="age" autocapitalize="off" maxlength="2" minlength="2" required onkeyup="check_age(this.value)">
+                                    <input type="text" id="age" class="input2" name="age" autocapitalize="off"
+                                        maxlength="2" minlength="2" required onkeyup="check_age(this.value)">
                                     <label class="label" id="lebel_age"> age </label>
                                 </div>
+                                <br>
                                 <div class="input">
-                                    <input type="text" id="email" onkeyup="check_email(this.value)" class="input2" name="name" autocapitalize="off" required>
-                                    <label id="lebel_email" class="label">Email</label>
-                                </div>
-                                <div class="input">
-                                    <input type="text" id="phone" onkeyup="check_phone_number(this.value)" class="input2" name="phone" autocapitalize="off" required>
-                                    <label id="lebel" class="label">Phone Number</label>
-                                </div><br>
-                                <div class="input">
-                                    <select name="gender" id="gender" onchange="check_gender(this.value)">
+                                    <select name="gender" id="gender">
                                         <option>
                                             Select Gender
                                         </option>
@@ -72,39 +67,20 @@
                                     </select>
                                 </div>
                                 <div class="input">
-                                    <select name="gender" id="blood" onchange="check_blood_group(this.value)">
-                                        <option>
-                                            Select Blood Group
-                                        </option>
-                                        <option>
-                                            A+
-                                        </option>
-                                        <option>
-                                            A-
-                                        </option>
-                                        <option>
-                                            B+
-                                        </option>
-                                        <option>
-                                            B-
-                                        </option>
-                                        <option>
-                                            AB+
-                                        </option>
-                                        <option>
-                                            AB-
-                                        </option>
-                                        <option>
-                                            O+
-                                        </option>
-                                        <option>
-                                            O-
-                                        </option>
-                                        <option>
-
-                                        </option>
-                                    </select>
+                                    <input type="text" id="blood_group" onkeyup="check_name(this.value)" class="input2"
+                                        name="blood_group" autocapitalize="off" required>
+                                    <label id="lebel" class="label">Blood Group</label>
                                 </div>
+                                <div class="input">
+                                    <input type="text" id="name" onkeyup="check_name(this.value)" class="input2"
+                                        name="name" autocapitalize="off" required>
+                                    <label id="lebel" class="label"></label>
+                                </div>
+                                <div class="input">
+                                    <input type="text" id="phone" onkeyup="check_name(this.value)" class="input2"
+                                        name="phone" autocapitalize="off" required>
+                                    <label id="lebel" class="label">Phone Number</label>
+                                </div><br>
                                 <div>
                                     <button type="submit" class="submit-btn">Register</button>
                                 </div><br>
@@ -115,19 +91,23 @@
                         <form id="camp" class="input-group hidden" method="post" style="left: 200px;">
                             <!-- <div id="camp2"></div> -->
                             <div class="input">
-                                <input type="text" id="name" onkeyup="check_name(this.value)" class="input2" name="name" autocapitalize="off" required>
+                                <input type="text" id="name" onkeyup="check_name(this.value)" class="input2" name="name"
+                                    autocapitalize="off" required>
                                 <label id="lebel" class="label">Name</label>
                             </div>
                             <div class="input">
-                                <input type="text" id="phone" onkeyup="check_name(this.value)" class="input2" name="phone" autocapitalize="off" required>
+                                <input type="text" id="phone" onkeyup="check_name(this.value)" class="input2"
+                                    name="phone" autocapitalize="off" required>
                                 <label id="lebel" class="label">Phone Number</label>
                             </div>
                             <div class="input">
-                                <input type="email" id="email" onkeyup="check_name(this.value)" class="input2" name="email" autocapitalize="off" required>
+                                <input type="email" id="email" onkeyup="check_name(this.value)" class="input2"
+                                    name="email" autocapitalize="off" required>
                                 <label id="lebel" class="label">Email</label>
                             </div>
                             <div class="input">
-                                <input type="text" id="venue" onkeyup="check_name(this.value)" class="input2" name="venue" autocapitalize="off" required>
+                                <input type="text" id="venue" onkeyup="check_name(this.value)" class="input2"
+                                    name="venue" autocapitalize="off" required>
                                 <label id="lebel" class="label">Venue of Camp</label>
                             </div><br>
                             <div>

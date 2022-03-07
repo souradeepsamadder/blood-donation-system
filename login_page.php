@@ -47,7 +47,10 @@
                     <!-- <hr> -->
                     <div class="form-box">
                         <div class="input">
-                            <input type="email" class="input-field" name="userid" placeholder="User Id" id="email" onkeyup="check_email(this.value)">
+                            <input type="email" class="input-field" name="userid" placeholder="User Id" id="email" onkeyup="check_email(this.value)" value="<?php
+                                                                                                                                                            if (isset($_COOKIE['userid'])) {
+                                                                                                                                                                echo $_COOKIE['userid'];
+                                                                                                                                                            } ?>">
                         </div>
                         <div class="container"><br>
                             <h3 style="font-size: 12px; text-align: left;">Enter OTP</h3>
@@ -80,7 +83,7 @@
                     <div>
                         <p style="font-size: 12px;" class="or">OR</p>
                         <p style="font-size: 12px;">Do not have an account?</p>
-                        <button class="raise" type="submit" class="register_btn"><a style="color:#fff;" href="registration_page.php">Register</a></button>
+                        <button class="raise" type="submit" class="register_btn"><a style="color:#fff;" href="registration.php">Register</a></button>
                     </div>
 
                 </form>
@@ -96,16 +99,97 @@
         $otps = $_POST['snd'];
         $otpt = $_POST['trd'];
         $otpfo = $_POST['forth'];
-        $the_otp = $otpf.''.$otps.''.$otpt.''.$otpfo;
+        $the_otp = $otpf . '' . $otps . '' . $otpt . '' . $otpfo;
+
         // echo $the_otp;
         // echo $userid,$otpf,$otps,$otpt,$otpfo;
-        if ($userid) {
-            $sql4 = "SELECT * FROM otp WHERE Userid = '$userid'";
-            $result4 = mysqli_query($conn, $sql4);
-            $show4 = mysqli_fetch_assoc($result4);
+        // if ($userid) {
+        //     $sql4 = "SELECT * FROM otp WHERE Userid = '$userid'";
+        //     $result4 = mysqli_query($conn, $sql4);
+        //     $show4 = mysqli_fetch_assoc($result4);
+        // } else {
+        //     echo "<script>alert('no')</script>";
+        // }
+        $sql3 = "SELECT * from login where Email='$userid'";
+        $result3 = (mysqli_query($conn, $sql3));
+        $data3 = mysqli_fetch_assoc($result3);
+        $count_user = mysqli_num_rows($result3);
+        // echo "<script>alert(`$data3['Email']`)</script>";
+        // echo "<script>alert('$count_user')</script>";
+        // $user_email = $data3['Email'];
+        // $user_account = $data3['User'];
+        if ($count_user) {
+            $user_email = $data3['Email'];
+            $user_account = $data3['User'];
+            // echo "<script>alert('$user_email')</script>";
+            // echo "<script>alert('$user_account')</script>";
+            if ($user_account == 'admin') {
+                $userid = $data3['Slno'];
+                $_SESSION['admin'] == $userid;
+                header("location:admin.php");
+            } elseif ($user_account == 'donner') {
+                $sql6 = "SELECT Status from donner where Email='$user_email'";
+                $result6 = mysqli_query($conn, $sql6);
+                $data6 = mysqli_fetch_array($result6);
+                $status = $data6['Status'];
+                if ($status == 'approve') {
+                    $userid = $data6['Slno'];
+                    $_SESSION['donner'] = $userid;
+                    header("location:donner.php");
+                } else {
+                    echo "<script>alert('the Donner is not approve')</script>";
+                }
+            } elseif ($user_account == 'camp') {
+                // echo "<script>alert('souuradeep')</script>";
+
+                $sql7 = "SELECT Status from camp where Email='$user_email'";
+                $result7 = mysqli_query($conn, $sql7);
+                $data7 = mysqli_fetch_array($result7);
+            // echo "Error: " . $sql7 . "<br>" . mysqli_error($conn);
+
+                $status2 = $data7['Status'];
+                // echo "<script>alert('$status2')</script>";
+
+                if ($status2 == 'approve') {
+                    $userid = $data7['Slno'];
+                    $_SESSION['camp'] = $userid;
+                    header("location:camp.php");
+                } else {
+                    echo "<script>alert('the Camp is not approve')</script>";
+                }
+            } elseif($user_account == 'hospital') {
+                echo "<script>alert('the Hospital is not approve')</script>";
+
+                $sql8 = "SELECT Status from hospital where Email='$user_email'";
+                $result8 = mysqli_query($conn, $sql8);
+                $data8 = mysqli_fetch_array($result8);
+                $status = $data8['Status'];
+                if ($status == 'approve') {
+                    $userid = $data8['Slno'];
+                    $_SESSION['donner'] = $userid;
+                    header("location:hospital.php");
+                } else {
+                    echo "<script>alert('the Hospital is not approve')</script>";
+                }
+            }
         } else {
-            echo "<script>alert('no')</script>";
+            echo "<script>alert('the userid is not exist')</script>";
         }
+        // $sql2 = "SELECT * FROM admin WHERE Email='$userid'";
+        // $result2 = (mysqli_query($conn, $sql2));
+        // $admin_count = mysqli_num_rows($result2);
+        // // echo "<script>alert('$sum')</script>";
+        // if ($admin_count) {
+        //     // echo "<script>alert('got it')</script>";
+        //     $userid = $row['Slno'];
+        //     $_SESSION['admin'] = $userid;
+        //     header("location:admin.php");
+
+        // }
+        // else{
+        //     echo "<script>alert(':(')</script>";
+
+        // }
     }
     ?>
     <?php
@@ -223,7 +307,7 @@ font-size: 15px;
                 } else {
                     echo "Error: " . $sqli . "<br>" . mysqli_error($conn);
                 }
-
+                setcookie("userid", $to_email, time() + (86400 * 30), "/");
                 // echo "mail send success";
             } else {
                 echo "mail not send";
