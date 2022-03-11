@@ -1,32 +1,20 @@
-<?php
-include('../project/database/db_conn.php');
-session_start();
-$donner = $_SESSION["donner"];
-if (empty($_SESSION["donner"])) {
-  echo "<script type='text/javascript'> alert('Please Login'); </script>";
 
+<?php
+// include('../TCW/db_conn.php');
+include('../project/database/db_conn.php');
+
+session_start();
+// s
+$d = $_SESSION["d"];
+if (empty($_SESSION["d"])) {
+    echo "<script type='text/javascript'> alert('Please Login'); </script>";
 ?>
-<script type="text/javascript">
-        window.location.href = 'home_page.php';
-    //   
-</script>
+    <script type="text/javascript">
+        window.location.href = 'login_page.php';
+    </script>
 <?php
 }
-// 
 ?>
-<script>
-    // function add_admin() {
-    //   var xhttp = new XMLHttpRequest();
-    //   xhttp.onreadystatechange = function() {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //       document.getElementById("demo").innerHTML =
-    //         this.responseText;
-    //     }
-    //   };
-    //   xhttp.open("GET", "add_admin_php", true);
-    //   xhttp.send();
-    // }
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <style type="text/css">
@@ -78,7 +66,7 @@ if (empty($_SESSION["donner"])) {
             </div>
         </form>
         <?php
-        $sq = "select * from donner where Sno='" . $donner . "' ";
+        $sq = "select * from donner where Sno='" . $d . "' ";
         $r = mysqli_query($conn, $sq);
         $rps = mysqli_fetch_assoc($r);
         $na = $rps["Name"];
@@ -101,7 +89,7 @@ if (empty($_SESSION["donner"])) {
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
                     <!-- <a class="dropdown-item" href="changepassword.php">Change Password</a> -->
-                    <a class="dropdown-item" href="adminlogin.php"><?php session_destroy(); ?>Logout</a>
+                    <a class="dropdown-item" href="adminlogin.php" id="logout">Logout</a>
                 </div>
 
             </li>
@@ -129,7 +117,7 @@ if (empty($_SESSION["donner"])) {
                     <a href="camp_notice.php" class="dropdown-item">
                         <img width="25px" src="./image/people2.gif">
                         <span><b>&nbsp;CAMP</b></span></a>
-                    <a href="notice_admin.php" class="dropdown-item">
+                    <a href="admin_notice.php" class="dropdown-item">
                         <img width="25px" src="./image/people2.gif">
                         <span><b>&nbsp;ADMIN</b></span></a>
                 </div>

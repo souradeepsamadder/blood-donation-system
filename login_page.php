@@ -7,7 +7,6 @@ session_start();
 $_SESSION["hospital"] = "";
 $_SESSION["admin"] = "";
 $_SESSION["camp"] = "";
-$_SESSION["donner"] = "";
 
 ?>
 
@@ -155,8 +154,11 @@ $_SESSION["donner"] = "";
                 if ($status == 'approve') {
                     if ($the_otp == $otp) {
                         $userid = $data6['Sno'];
-                        $_SESSION['donner'] = $userid;
-                        echo "<script>window.location.assign('donner.php') </script>";
+$_SESSION["d"] = "";
+
+                        $_SESSION["d"] = $userid;
+                        // echo "<script>window.location.assign('donner.php') </script>";
+                        header("location:donner.php");
                     } else {
                         echo "<script>alert('Your otp is not correct ')</script>";
                     }
