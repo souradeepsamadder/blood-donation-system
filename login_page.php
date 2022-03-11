@@ -1,14 +1,21 @@
+<?php
+include('../project/database/db_conn.php');
+date_default_timezone_set('Asia/Kolkata');
+$dt = date("Y-m-d");
+$ti = date("H:i:s");
+session_start();
+$_SESSION["hospital"] = "";
+$_SESSION["admin"] = "";
+$_SESSION["camp"] = "";
+$_SESSION["donner"] = "";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 
 <head>
-    <?php
-    include('../project/database/db_conn.php');
-    date_default_timezone_set('Asia/Kolkata');
-    $dt = date("Y-m-d");
-    $ti = date("H:i:s");
-    ?>
 
     <title>Document</title>
     <!-- <script src="registration.js"></script> -->
@@ -21,12 +28,21 @@
     <header>
         <div class="from_background">
             <div class="text">
-                <h1 class="">
-                    <p>
-                        Welcome Back!
 
-                    </p>
-                    <img src="./photos/success.gif" alt="">
+                <span styel="--display:0.1s">W</span>
+                <span styel="--display:0.2s">e</span>
+                <span styel="--display:0.3s">l</span>
+                <span styel="--display:0.4s">c</span>
+                <span styel="--display:0.5s">o</span>
+                <span styel="--display:0.6s">m</span>
+                <span styel="--display:0.7s">e</span>
+                <span styel="--display:0.8s"></span>
+                <span styel="--display:0.9s">B</span>
+                <span styel="--display:0.10s">a</span>
+                <span styel="--display:0.11s">c</span>
+                <span styel="--display:0.12s">k</span>
+                <span styel="--display:0.13s">!</span>
+                <img src="./photos/success.gif" alt="">
 
                 </h1>
             </div>
@@ -100,74 +116,85 @@
         $otpt = $_POST['trd'];
         $otpfo = $_POST['forth'];
         $the_otp = $otpf . '' . $otps . '' . $otpt . '' . $otpfo;
-
-        // echo $the_otp;
-        // echo $userid,$otpf,$otps,$otpt,$otpfo;
-        // if ($userid) {
-        //     $sql4 = "SELECT * FROM otp WHERE Userid = '$userid'";
-        //     $result4 = mysqli_query($conn, $sql4);
-        //     $show4 = mysqli_fetch_assoc($result4);
-        // } else {
-        //     echo "<script>alert('no')</script>";
-        // }
         $sql3 = "SELECT * from login where Email='$userid'";
         $result3 = (mysqli_query($conn, $sql3));
         $data3 = mysqli_fetch_assoc($result3);
+        // $status12=$data3['User'];
         $count_user = mysqli_num_rows($result3);
-        // echo "<script>alert(`$data3['Email']`)</script>";
-        // echo "<script>alert('$count_user')</script>";
-        // $user_email = $data3['Email'];
-        // $user_account = $data3['User'];
         if ($count_user) {
             $user_email = $data3['Email'];
             $user_account = $data3['User'];
-            // echo "<script>alert('$user_email')</script>";
-            // echo "<script>alert('$user_account')</script>";
+            $sql9 = "Select * from otp where Userid='$user_email'";
+            $result9 = mysqli_query($conn, $sql9);
+            $data9 = mysqli_fetch_assoc($result9);
+            $otp = $data9['Otp'];
             if ($user_account == 'admin') {
-                $userid = $data3['Slno'];
-                $_SESSION['admin'] == $userid;
-                header("location:admin.php");
+
+                if ($the_otp == $otp) {
+                    $sql2 = "Select * from admin where Email='$userid'";
+
+                    $result2 = mysqli_query($conn, $sql2);
+                    $data2 = mysqli_fetch_assoc($result2);
+                    // $email = $data2['Email'];
+                    // echo "<script>alert('$status12')</script>";
+
+                    $userid = $data2['Slno'];
+                    // echo "<script>alert('$userid')</script>";
+
+                    $_SESSION['admin'] = $userid;
+                    echo "<script>window.location.assign('admin.php') </script>";
+                } else {
+                    echo "<script>alert('Your otp is not correct ')</script>";
+                }
             } elseif ($user_account == 'donner') {
-                $sql6 = "SELECT Status from donner where Email='$user_email'";
+                $sql6 = "SELECT * from donner where Email='$user_email'";
                 $result6 = mysqli_query($conn, $sql6);
-                $data6 = mysqli_fetch_array($result6);
+                $data6 = mysqli_fetch_assoc($result6);
                 $status = $data6['Status'];
+                // echo "<script>alert('$status12')</script>";
                 if ($status == 'approve') {
-                    $userid = $data6['Slno'];
-                    $_SESSION['donner'] = $userid;
-                    header("location:donner.php");
+                    if ($the_otp == $otp) {
+                        $userid = $data6['Sno'];
+                        $_SESSION['donner'] = $userid;
+                        echo "<script>window.location.assign('donner.php') </script>";
+                    } else {
+                        echo "<script>alert('Your otp is not correct ')</script>";
+                    }
                 } else {
                     echo "<script>alert('the Donner is not approve')</script>";
                 }
             } elseif ($user_account == 'camp') {
-                // echo "<script>alert('souuradeep')</script>";
-
-                $sql7 = "SELECT Status from camp where Email='$user_email'";
+                $sql7 = "SELECT * from camp where Email='$user_email'";
                 $result7 = mysqli_query($conn, $sql7);
                 $data7 = mysqli_fetch_array($result7);
-            // echo "Error: " . $sql7 . "<br>" . mysqli_error($conn);
-
                 $status2 = $data7['Status'];
-                // echo "<script>alert('$status2')</script>";
-
                 if ($status2 == 'approve') {
-                    $userid = $data7['Slno'];
-                    $_SESSION['camp'] = $userid;
-                    header("location:camp.php");
+                    if ($the_otp == $otp) {
+                        $userid = $data7['Slno'];
+                        $_SESSION['camp'] = $userid;
+                        echo "<script>window.location.assign('camp.php') </script>";
+                    } else {
+                        echo "<script>alert('Your otp is not correct ')</script>";
+                    }
                 } else {
                     echo "<script>alert('the Camp is not approve')</script>";
                 }
-            } elseif($user_account == 'hospital') {
-                echo "<script>alert('the Hospital is not approve')</script>";
-
-                $sql8 = "SELECT Status from hospital where Email='$user_email'";
+            } elseif ($user_account == 'hospital') {
+                $sql8 = "SELECT * from hospital where Email='$user_email'";
                 $result8 = mysqli_query($conn, $sql8);
                 $data8 = mysqli_fetch_array($result8);
                 $status = $data8['Status'];
                 if ($status == 'approve') {
-                    $userid = $data8['Slno'];
-                    $_SESSION['donner'] = $userid;
-                    header("location:hospital.php");
+
+                    if ($the_otp == $otp) {
+                        $userid = $data8['Slno'];
+                        $_SESSION['hospital'] = $userid;
+                        // echo "<script>window.location.assign('admin.php') </script>";
+
+                        echo "<script>window.location.assign('hospital.php') </script>";
+                    } else {
+                        echo "<script>alert('Your otp is not correct ')</script>";
+                    }
                 } else {
                     echo "<script>alert('the Hospital is not approve')</script>";
                 }
@@ -321,22 +348,40 @@ font-size: 15px;
 
 </body>
 <script>
-    document.load
-    var r_text = new Array();
-    r_text[0] = "BE A HERO GIVE BLOOD";
-    r_text[1] = "EVERYONE MAY BECOME A SAVIOR";
-    r_text[2] = "GIVE BLOOD GIVE LIFE ";
-    r_text[3] = "THERE IS NO SUBSTUTUTE FOR BLOOD IT ONLY COMES FROM GENEROUS DONNER ";
-    r_text[4] = "NEVER REFUSE TO DONATE BLOOD IF YOU CAN AS YOU MY BE THE NEXT NEEDY";
-    r_text[5] = "DONATE YOUR BOLLD AND MAKE A DINCEFFERE";
-    r_text[6] = "YOU DONT.N HAVE TO BE A DOCTOR TO SAVE LIVES";
-    r_text[7] = "GIVE THE GIFT OF LIFE DONATE BLOOD";
-    r_text[8] = "WE NEED EACH OTHER DONATE BLOOD";
-    r_text[9] = "PROUD TO BE A BLOOD DONOR";
-    r_text[10] = "1 PAIN CAN SAVE 3 LIVES GIVE BLOOD GIVVE LIFE";
-    var i = Math.floor(11 * Math.random());
-    document.getElementById("msg").innerHTML = r_text[i];
-    //  console.log(r_text[i]);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('SOMETIMES MONEY CANNOT SAVE LIFE,BUT DONATED BLOOD CAN.')
+    }, 1);
+    setTimeout(function() {
+
+        document.getElementById("msg").innerHTML = ('EXCUSES NEVER SAVE A LIFE,BLOOD DONATION DOES.')
+    }, 4000);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('DONATE BLOOD,DONATE LIFE!')
+    }, 8000);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('EVERY BLOOD DONOR IS A HERO.')
+    }, 12000);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('BLOOD DONATION IS THE REAL ACT OF HUMANITY.')
+    }, 16000);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('GIVE BLOOD AND KEEP THE WORLD BEATING.')
+    }, 20000);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('DONATE YOUR BLOOD AND MAKE A DIFFERENCE !')
+    }, 24000);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('SOMETIMES MONEY CANNOT SAVE LIFE,BUT DONATED BLOOD CAN.')
+    }, 28000);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('THERE IS NO GREAT JOY THAN SAVING A SOUL.')
+    }, 32000);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('YOUR LITTLE EFFORT CAN GIVE OTHERS SECOND CHANCE TO LIVE LIFE.')
+    }, 36000);
+    setTimeout(function() {
+        document.getElementById("msg").innerHTML = ('YOU DONT HAVE TO BE A DOCTOR TO SAVE LIVES..')
+    }, 40000);
 </script>
 
 </html>

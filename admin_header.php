@@ -1,17 +1,18 @@
 <?php
 include('../project/database/db_conn.php');
-// session_start();
-// $admin = $_SESSION["admin"];
-// if (empty($_SESSION["amdin"])) {
-//   echo "<script type='text/javascript'> alert('Please Login'); </script>";
-// 
+session_start();
+$admin = $_SESSION["admin"];
+
+if (empty($_SESSION["admin"])) {
+  echo "<script type='text/javascript'> alert('Please Login'); </script>";
+
 ?>
 <script type="text/javascript">
-  //     window.location.href = 'home_page.php';
+      window.location.href = 'login_page.php';
   //   
 </script>
 <?php
-// }
+}
 // 
 ?>
 <script>
@@ -78,10 +79,10 @@ include('../project/database/db_conn.php');
       </div>
     </form>
     <?php
-    // $sq = "select * from aadmin where Email='" . $e . "' ";
-    // $r = mysqli_query($conn, $sq);
-    // $rps = mysqli_fetch_assoc($r);
-    // $na = $rps["Name"];
+    $sq = "select * from admin where Slno='" . $admin . "' ";
+    $r = mysqli_query($conn, $sq);
+    $rps = mysqli_fetch_assoc($r);
+    $na = $rps["Name"];
     ?>
     <!-- Navbar -->
     <font color="white">
@@ -101,7 +102,9 @@ include('../project/database/db_conn.php');
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
           <!-- <a class="dropdown-item" href="changepassword.php">Change Password</a> -->
-          <a class="dropdown-item" href="adminlogin.php">Logout</a>
+          <a class="dropdown-item" href="home_page.php">
+            <?php session_destroy();
+            ?>Logout</a>
         </div>
 
       </li>

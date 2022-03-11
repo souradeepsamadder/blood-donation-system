@@ -1,17 +1,17 @@
 <?php
 include('../project/database/db_conn.php');
-// session_start();
-// $donner = $_SESSION["donner"];
-// if (empty($_SESSION["amdin"])) {
-//   echo "<script type='text/javascript'> alert('Please Login'); </script>";
-// 
+session_start();
+$donner = $_SESSION["donner"];
+if (empty($_SESSION["donner"])) {
+  echo "<script type='text/javascript'> alert('Please Login'); </script>";
+
 ?>
 <script type="text/javascript">
-    //     window.location.href = 'home_page.php';
+        window.location.href = 'home_page.php';
     //   
 </script>
 <?php
-// }
+}
 // 
 ?>
 <script>
@@ -61,7 +61,7 @@ include('../project/database/db_conn.php');
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        <a class="navbar-brand mr-1" href="donner.php">WELCOME donner</a>
+        <a class="navbar-brand mr-1" href="donner.php">WELCOME DONAR</a>
 
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
@@ -78,10 +78,10 @@ include('../project/database/db_conn.php');
             </div>
         </form>
         <?php
-        // $sq = "select * from aadmin where Email='" . $e . "' ";
-        // $r = mysqli_query($conn, $sq);
-        // $rps = mysqli_fetch_assoc($r);
-        // $na = $rps["Name"];
+        $sq = "select * from donner where Sno='" . $donner . "' ";
+        $r = mysqli_query($conn, $sq);
+        $rps = mysqli_fetch_assoc($r);
+        $na = $rps["Name"];
         ?>
         <!-- Navbar -->
         <font color="white">
@@ -101,7 +101,7 @@ include('../project/database/db_conn.php');
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
                     <!-- <a class="dropdown-item" href="changepassword.php">Change Password</a> -->
-                    <a class="dropdown-item" href="adminlogin.php">Logout</a>
+                    <a class="dropdown-item" href="adminlogin.php"><?php session_destroy(); ?>Logout</a>
                 </div>
 
             </li>

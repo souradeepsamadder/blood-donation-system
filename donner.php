@@ -55,7 +55,7 @@ include("../project/database/db_conn.php");
 					</div>
 					<div class="mr-5" align="center">
 						<i class="far fa-clipboard" style="font-size:24px"></i>
-						Number of Donner :-
+						Number of Donar	 :-
 						<?php
 						$sql="select * from donner";
 						$row =mysqli_query($conn,$sql);
