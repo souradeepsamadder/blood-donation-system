@@ -18,8 +18,8 @@ include("../project/database/db_conn.php");
 						<i class="fas fa-chalkboard-teacher" style="font-size:24px"></i>
 						Number of Camp :-
 						<?php
-						$sql="select * from camp";
-						$row =mysqli_query($conn,$sql);
+						$sql = "select * from camp";
+						$row = mysqli_query($conn, $sql);
 						$count = mysqli_num_rows($row);
 						echo $count;
 						?>
@@ -38,8 +38,8 @@ include("../project/database/db_conn.php");
 						<i class="fa fa-users" aria-hidden="true" style="font-size:24px"></i>&nbsp;&nbsp;
 						number of hospital :-
 						<?php
-						$sql="select * from hospital";
-						$row =mysqli_query($conn,$sql);
+						$sql = "select * from hospital";
+						$row = mysqli_query($conn, $sql);
 						$count = mysqli_num_rows($row);
 						echo $count;
 						?>
@@ -55,10 +55,10 @@ include("../project/database/db_conn.php");
 					</div>
 					<div class="mr-5" align="center">
 						<i class="far fa-clipboard" style="font-size:24px"></i>
-						Number of Donar	 :-
+						Number of Donar :-
 						<?php
-						$sql="select * from donner";
-						$row =mysqli_query($conn,$sql);
+						$sql = "select * from donner";
+						$row = mysqli_query($conn, $sql);
 						$count = mysqli_num_rows($row);
 						echo $count;
 						?>
@@ -69,7 +69,34 @@ include("../project/database/db_conn.php");
 
 	</div>
 </div>
+<div class="form-group">
+	<div class="form-row">
+		<div class="col-md-4">
+			<div class="card text-white bg-primary o-hidden h-100">
+				<div class="card-body">
+					<div class="card-body-icon">
+						<i class="fas fa-fw fa-comments"></i>
+					</div>
+					<div class="mr-5" align="center">
+						<i class="fas fa-chalkboard-teacher" style="font-size:24px"></i>
+						number of camp attend :-
+						<?php
+						// $sql="select * from camp";
+						// $row =mysqli_query($conn,$sql);
+						// $count = mysqli_num_rows($row);
+						// echo $count;
+						?>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
 </div>
+</div>
+
 
 
 

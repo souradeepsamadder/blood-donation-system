@@ -111,13 +111,13 @@ if (empty($_SESSION["d"])) {
             <li class="nav-item active">
                 <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"><img width="25px" src="./image/add.gif"><span><b>&nbsp;NOTICE</b></span></a>
                 <div class="dropdown-menu">
-                    <a href="hospital_notice.php" class="dropdown-item">
+                    <a href="view_hospital_notice.php" class="dropdown-item">
                         <img width="25px" src="./image/people2.gif">
                         <span><b>&nbsp;HOSPITAL</b></span></a>
-                    <a href="camp_notice.php" class="dropdown-item">
+                    <a href="view_camp_notice.php" class="dropdown-item">
                         <img width="25px" src="./image/people2.gif">
                         <span><b>&nbsp;CAMP</b></span></a>
-                    <a href="admin_notice.php" class="dropdown-item">
+                    <a href="view_admin_notice.php" class="dropdown-item">
                         <img width="25px" src="./image/people2.gif">
                         <span><b>&nbsp;ADMIN</b></span></a>
                 </div>
