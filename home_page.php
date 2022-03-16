@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="navbar_button">
-                        <a href="registration.php"> <button class="btn btn-primary text_color_black" style="margin-top: 15px;">log in / regester</button></a>
+                        <a href="login_page.php"> <button class="btn btn-primary text_color_black" style="margin-top: 15px;">log in / regester</button></a>
                     </div>
                 </nav>
             </div>

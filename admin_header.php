@@ -102,9 +102,7 @@ if (empty($_SESSION["admin"])) {
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
           <!-- <a class="dropdown-item" href="changepassword.php">Change Password</a> -->
-          <a class="dropdown-item" href="home_page.php">
-            <?php session_destroy();
-            ?>Logout</a>
+          <a class="dropdown-item" href="home_page.php">Logout</a>
         </div>
 
       </li>

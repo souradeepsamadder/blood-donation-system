@@ -102,7 +102,7 @@ if (empty($_SESSION["camp"])) {
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
                     <!-- <a class="dropdown-item" href="changepassword.php">Change Password</a> -->
-                    <a class="dropdown-item" href="adminlogin.php"><?php session_destroy(); ?>Logout</a>
+                    <a class="dropdown-item" href="adminlogin.php">Logout</a>
                 </div>
 
             </li>
@@ -122,25 +122,10 @@ if (empty($_SESSION["camp"])) {
                 </a>
             </li>
             <li class="nav-item active">
-                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"><img width="25px" src="./image/add.gif"><span><b>&nbsp;ADD ITEMS</b></span></a>
-                <div class="dropdown-menu" id="demo">
-                    <a href="add_admin.php" class="dropdown-item">
-                        <img width="25px" src="./image/people2.gif">
-                        <span><b>&nbsp;CAMP</b></span></a>
-                </div>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="admin_notice.php">
+                <a class="nav-link" href="camp_notice.php">
                     <!--<i class="fas fa-fw fa-folder"></i>-->
                     <img width="25px" src="./image/eye.gif">
                     <span><b>NOTICE</b></span>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="approval.php">
-                    <!--<i class="fas fa-fw fa-folder"></i>-->
-                    <img width="25px" src="./image/eye.gif">
-                    <span><b>APPROVAL</b></span>
                 </a>
             </li>
         </ul>
