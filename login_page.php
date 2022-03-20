@@ -43,7 +43,7 @@ $_SESSION["camp"] = "";
                 <span styel="--display:0.13s">!</span>
                 <img src="./photos/success.gif" alt="">
 
-                </h1>
+
             </div>
             <br>
             <div class="cote">
@@ -154,7 +154,7 @@ $_SESSION["camp"] = "";
                 if ($status == 'approve') {
                     if ($the_otp == $otp) {
                         $userid = $data6['Sno'];
-$_SESSION["d"] = "";
+                        $_SESSION["d"] = "";
 
                         $_SESSION["d"] = $userid;
                         // echo "<script>window.location.assign('donner.php') </script>";

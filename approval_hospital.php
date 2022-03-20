@@ -14,7 +14,7 @@ include("../project/admin_header.php");
     <!-- DataTables Example -->
     <div class="card mb-3">
         <div class="card-header">
-            <center><b>DONNER HOSPITAL</b></center>
+            <center><b>HOSPITAL</b></center>
         </div>
         <div class="card-body">
             <div class="table-responsive">

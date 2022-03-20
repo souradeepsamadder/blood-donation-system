@@ -1,4 +1,3 @@
-
 <?php
 // include('../TCW/db_conn.php');
 include('../project/database/db_conn.php');
@@ -121,6 +120,12 @@ if (empty($_SESSION["d"])) {
                         <img width="25px" src="./image/people2.gif">
                         <span><b>&nbsp;ADMIN</b></span></a>
                 </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="chat.php">
+                    <img width="40px" src="./photos/chat3.gif">
+                    <span><b>CHAT</b></span>
+                </a>
             </li>
         </ul>
 

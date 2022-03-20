@@ -4,10 +4,6 @@ include("../project/donner_header.php");
 $donor = $_SESSION["d"];
 ?>
 <form name="form2" class="" method="post">
-
-    <!-- Area Chart Example-->
-
-    <!-- DataTables Example -->
     <div class="card mb-3 ">
         <div class="card-header ">
             <center><b>NOTICE DETAILS</b></center>
@@ -24,34 +20,33 @@ $donor = $_SESSION["d"];
                             <th>Held Time</th>
                             <th>held Date</th>
                             <th>Venue</th>
-                            <th>Date</th>
-                            <th>Time</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         <?php
                         $c = 1;
-                        $sq = "select * from camp_notice order by Date desc,Time desc";
+                        $sq = "select * from camp_notice ";
                         $cres = mysqli_query($conn, $sq);
                         while ($row = mysqli_fetch_assoc($cres)) {
-                            $dat = strtotime($row["Date"]);
-                            $dat1 = date("d-m-Y", $dat);
+                            // $dat = strtotime($row["Date"]);
+                            // $dat1 = date("d-m-Y", $dat);
+                        $name = $row["Cid"];
                         ?>
                             <tr>
                                 <td><?php echo $c ?></td>
-                                <!-- <td><?php echo $na ?></td> -->
-                                <td><?php echo $row[""]; ?></td>
-                                <td><?php echo $row[""]; ?></td>
-                                <td><?php echo $row[""]; ?></td>
-                                <td><?php echo $row[""]; ?></td>
-                                <td><?php echo $row[""]; ?></td>
-                                <td><?php echo $row[""]; ?></td>
-                                <td><?php echo $row[""]; ?></td>
-                                <td><?php echo $row[""]; ?></td>
-
-                                <!-- <td><?php echo $dat1; ?></td> -->
-                                <!-- <td><?php echo $row[""]; ?></td> -->
+                                <td>
+                                    <?php 
+                                    $sqli="select Name from camp where Slno='$name'";
+                                    $row1=mysqli_query($conn,$sqli);
+                                    $result=mysqli_fetch_assoc($row1);
+                                    echo $result["Name"]; ?>
+                                </td>
+                                <td><?php echo $row["Title"]; ?></td>
+                                <td><?php echo $row["Notice"]; ?></td>
+                                <td><?php echo $row["Held_date"]; ?></td>
+                                <td><?php echo $row["Held_time"]; ?></td>
+                                <td><?php echo $row["venue"]; ?></td>
                             </tr>
                         <?php
                             $c++;

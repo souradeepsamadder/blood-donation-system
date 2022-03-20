@@ -37,15 +37,15 @@ $ti = date("H:i:s");
     }
 
 
-    function selects() {
-        if (document.getElementById("sas1").checked) {
-            document.getElementById("course").style.display = "none";
-            // document.getElementById("course").style.display = "checked";
+    // function selects() {
+    //     if (document.getElementById("sas1").checked) {
+    //         document.getElementById("course").style.display = "none";
+    //         // document.getElementById("course").style.display = "checked";
 
-        } else {
-            document.getElementById("course").style.display = "block";
-        }
-    }
+    //     } else {
+    //         document.getElementById("course").style.display = "block";
+    //     }
+    // }
 </script>
 <div class="card card-register mx-auto mt-5">
     <div class="card-header"><b>
@@ -81,10 +81,11 @@ $ti = date("H:i:s");
                                 <option>select Option</option>
                                 <option>All</option>
                                 <?php
-                                $sql = "select distinct(C_name) from course";
+                                // $sql = "select distinct donner.User,admin.User from admin,donner,camp,hospital";
+                                $sql = "SELECT DISTINCT admin.User,donner.User,hospital.User,camp.User FROM `donner`,`hospital`,`admin`,`camp`";
                                 $res = mysqli_query($conn, $sql);
                                 while ($row = mysqli_fetch_assoc($res)) {
-                                    $cou = $row['C_name'];
+                                    $cou = $row['User'];
                                     // echo $cou;
                                 ?>
                                     <option><?php echo $cou; ?></option>

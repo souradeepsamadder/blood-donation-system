@@ -12,7 +12,7 @@
      <!-- DataTables Example -->
      <div class="card mb-3">
          <div class="card-header">
-             <center><b>DONNER DETAILS</b></center>
+             <center><b>DETAILS</b></center>
          </div>
          <div class="card-body">
              <div class="table-responsive">
@@ -50,13 +50,13 @@
                                  <td><?php echo $row["Email"]; ?></td>
                                  <td><?php echo $row["Phone"]; ?></td>
                                  <td><?php echo $row["Date"] ?></td>
-                                  <td>
-                                    <button><a href="donner_approve.php?c=<?php echo $row["Sno"]; ?>">Approve</a></button>
-                                </td>
-                                <td>
-                                    <button><a href="donner_reject.php?c=<?php echo $row["Sno"]; ?>">Rejected</a></button>
+                                 <td>
+                                     <button><a href="donner_approve.php?c=<?php echo $row["Sno"]; ?>">Approve</a></button>
+                                 </td>
+                                 <td>
+                                     <button><a href="donner_reject.php?c=<?php echo $row["Sno"]; ?>">Rejected</a></button>
 
-                                </td>
+                                 </td>
                              </tr>
                          <?php
                                 $c++;
