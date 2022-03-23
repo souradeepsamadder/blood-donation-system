@@ -4,6 +4,7 @@ date_default_timezone_set('Asia/Kolkata');
 $dt = date("Y-m-d");
 $ti = date("H:i:s");
 $donor = $_SESSION["d"];
+// header("refresh: 3");
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +34,7 @@ $donor = $_SESSION["d"];
                 $sql2 = "select * from msg";
                 $r = mysqli_query($conn, $sql2);
                 while ($ro = mysqli_fetch_assoc($r)) {
-                    $dno=$ro['Dno'];
+                    $dno = $ro['Dno'];
                 ?>
                     <div class="msg">
                         <div class="name">
@@ -72,7 +73,7 @@ $donor = $_SESSION["d"];
                             🙂
                         </p>
                     </div>
-                    <input type="text" placeholder=" type your message hear.." require name="add_msg">
+                    <input type="text" placeholder=" type your message hear.." require onclick="" name="add_msg">
                 </div>
             </footer>
         </div>
@@ -84,8 +85,22 @@ if (isset($_POST['add_msg'])) {
     $msg = $_POST['add_msg'];
     $sql1 = "insert into msg values('','$donor','$msg','$dt','$ti')";
     $result1 = (mysqli_query($conn, $sql1));
+       
+        echo " window.location.reload('chat.php')";
     // echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
 }
 ?>
+<script>
+    window.addEventListener('keydown', function (e) {
+    console.log((e.keyCode));
+    // const { keyCode } = e
+    if(e.keyCode==13)
+    {
+        console.log("khiii")
+        window.location.reload("chat.php")
+
+    }
+    },false);
+</script>
 
 </html>
