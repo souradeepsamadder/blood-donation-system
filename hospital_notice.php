@@ -9,24 +9,6 @@ $data3 = mysqli_fetch_assoc($result3);
 date_default_timezone_set('Asia/Kolkata');
 $dt = date("Y-m-d");
 $ti = date("H:i:s");
-$sql3 = "select * from donner";
-$row3 = mysqli_query($conn, $sql3);
-$sum = mysqli_num_rows($row3);
-// echo $sum;
-while ($r3 = mysqli_fetch_assoc($row3)) {
-    $to_email = $r3['Email'];
-    // $name = $r3['Name'];
-    // echo "..$to_email..";
-}
-$sql4 = "select * from camp";
-$row4 = mysqli_query($conn, $sql4);
-$sum = mysqli_num_rows($row4);
-// echo $sum;
-while ($r4 = mysqli_fetch_assoc($row4)) {
-    $to_email = $r4['Email'];
-    // $name = $r3['Name'];
-    // echo "..$to_email..";
-}
 ?>
 
 <div class="card card-register mx-auto mt-5 ">
@@ -153,19 +135,20 @@ if (isset($_POST['add'])) {
             $sql3 = "select * from donner where User='donner' and Blood='A+'";
             $row3 = mysqli_query($conn, $sql3);
             $sum = mysqli_num_rows($row3);
-            $r3 = mysqli_fetch_assoc($row3);
+            // $r3 = mysqli_fetch_assoc($row3);
             // $to_email = $r3['Email'];
             // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
             while ($r3 = mysqli_fetch_assoc($row3)) {
-                // $to_email = $r3['Email'];
-                // $name = $r3['Name'];
-                echo "..$to_email..";
-            // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
-            // $to_email = "souradeepsamadder1@gmail.com";
-        $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
-        $headers .= "MIME-version: 1.0\r\n";
-        $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
-        $massage = "<!DOCTYPE html>
+                $to_email = $r3['Email'];
+                $name = $r3['Name'];
+                // echo "..$to_email..";
+                // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+                // $to_email = "souradeepsamadder1@gmail.com";
+                $subject ="asking for the blood";
+                $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
+                $headers .= "MIME-version: 1.0\r\n";
+                $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
+                $massage = "<!DOCTYPE html>
         <html lang='en'>
 
         <head>
@@ -218,7 +201,7 @@ if (isset($_POST['add'])) {
                     <h1><b> Blood Donation Campaign</b></h1><br>
                     <div class='hr'></div>
                     <br>
-                    <p>Hello <b></b> </p><br>
+                    <p>Hello <b>$name..</b> </p><br>
                     <p> We hope this mail finds you and your loved ones, safe and healthy. </p><br>
                     <p> We just wanted to give you some information about blood donation.</p><br>
                     <p> Let us together donate our blood to help the others. A little act goes a long way!</p><br>
@@ -238,27 +221,692 @@ if (isset($_POST['add'])) {
         </body>
 
         </html>";
-        if (mail($to_email, $subject, $massage, $headers)) {
-            echo "mail send success";
-        } else {
-            echo "mail not send";
-        }
-
+                if (mail($to_email, $subject, $massage, $headers)) {
+                    // echo "mail send success";
+                } else {
+                    echo "mail not send";
+                }
             }
         } elseif ($blood_group == "A-") {
-            echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+            // echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+            $sql3 = "select * from donner where User='donner' and Blood='A-'";
+            $row3 = mysqli_query($conn, $sql3);
+            $sum = mysqli_num_rows($row3);
+            // $r3 = mysqli_fetch_assoc($row3);
+            // $to_email = $r3['Email'];
+            // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+            while ($r3 = mysqli_fetch_assoc($row3)) {
+                $to_email = $r3['Email'];
+                $name = $r3['Name'];
+                // echo "..$to_email..";
+                // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+                // $to_email = "souradeepsamadder1@gmail.com";
+                $subject ="asking for the blood";
+                $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
+                $headers .= "MIME-version: 1.0\r\n";
+                $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
+                $massage = "<!DOCTYPE html>
+        <html lang='en'>
+
+        <head>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: gray;
+            }
+
+            header {
+                background-color: black;
+                color: white;
+                opacity: .5;
+                padding: 100px;
+                height: auto;
+                width: 600px;
+                margin: auto;
+                border-radius: 30px;
+                border: 2px solid green;
+
+            }
+            p{
+                color:#ffffff;
+            }
+            .hr {
+                height: 2px;
+                border-radius: 40px;
+                background: linear-gradient(to right, #cc99ff 46%, #ff99cc 100%);
+            }
+            @media only screen and (max-width: 600px) {
+                header {
+                    height: 30%;
+                    width: auto;
+                    padding:25px;
+                    font-size: 15px;
+
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <header>
+                <center>
+                    <h1><b> Blood Donation Campaign</b></h1><br>
+                    <div class='hr'></div>
+                    <br>
+                    <p>Hello <b>$name..</b> </p><br>
+                    <p> We hope this mail finds you and your loved ones, safe and healthy. </p><br>
+                    <p> We just wanted to give you some information about blood donation.</p><br>
+                    <p> Let us together donate our blood to help the others. A little act goes a long way!</p><br>
+                    <p> $noti</p></br>
+                    <p><b><u> Date: $date</u></b></p><br>
+                    <p><b><u>Time: $time onwards</u></b></p><br>
+                    <p><b><u>Venue: $venue</u></b></p><br>
+
+                    <div class='hr'></div>
+                    <br>
+                    <p>Contact: 8101008843,8637571875</p>
+                    <p>Mail: snehamajumder12318@gmail.com,<br></p>
+                    <p>souradeepsamadder1@gmail.com </p>
+                    </div>
+                </center>
+            </header>
+        </body>
+
+        </html>";
+                if (mail($to_email, $subject, $massage, $headers)) {
+                    // echo "mail send success";
+                } else {
+                    echo "mail not send";
+                }
+            }
+        
         } elseif ($blood_group == "B+") {
-            echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+            // echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+   $sql3 = "select * from donner where User='donner' and Blood='B+'";
+            $row3 = mysqli_query($conn, $sql3);
+            $sum = mysqli_num_rows($row3);
+            // $r3 = mysqli_fetch_assoc($row3);
+            // $to_email = $r3['Email'];
+            // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+            while ($r3 = mysqli_fetch_assoc($row3)) {
+                $to_email = $r3['Email'];
+                $name = $r3['Name'];
+                // echo "..$to_email..";
+                // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+                // $to_email = "souradeepsamadder1@gmail.com";
+                $subject ="asking for the blood";
+                $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
+                $headers .= "MIME-version: 1.0\r\n";
+                $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
+                $massage = "<!DOCTYPE html>
+        <html lang='en'>
+
+        <head>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: gray;
+            }
+
+            header {
+                background-color: black;
+                color: white;
+                opacity: .5;
+                padding: 100px;
+                height: auto;
+                width: 600px;
+                margin: auto;
+                border-radius: 30px;
+                border: 2px solid green;
+
+            }
+            p{
+                color:#ffffff;
+            }
+            .hr {
+                height: 2px;
+                border-radius: 40px;
+                background: linear-gradient(to right, #cc99ff 46%, #ff99cc 100%);
+            }
+            @media only screen and (max-width: 600px) {
+                header {
+                    height: 30%;
+                    width: auto;
+                    padding:25px;
+                    font-size: 15px;
+
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <header>
+                <center>
+                    <h1><b> Blood Donation Campaign</b></h1><br>
+                    <div class='hr'></div>
+                    <br>
+                    <p>Hello <b>$name..</b> </p><br>
+                    <p> We hope this mail finds you and your loved ones, safe and healthy. </p><br>
+                    <p> We just wanted to give you some information about blood donation.</p><br>
+                    <p> Let us together donate our blood to help the others. A little act goes a long way!</p><br>
+                    <p> $noti</p></br>
+                    <p><b><u> Date: $date</u></b></p><br>
+                    <p><b><u>Time: $time onwards</u></b></p><br>
+                    <p><b><u>Venue: $venue</u></b></p><br>
+
+                    <div class='hr'></div>
+                    <br>
+                    <p>Contact: 8101008843,8637571875</p>
+                    <p>Mail: snehamajumder12318@gmail.com,<br></p>
+                    <p>souradeepsamadder1@gmail.com </p>
+                    </div>
+                </center>
+            </header>
+        </body>
+
+        </html>";
+                if (mail($to_email, $subject, $massage, $headers)) {
+                    // echo "mail send success";
+                } else {
+                    echo "mail not send";
+                }
+            }
         } elseif ($blood_group == "B-") {
-            echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+            // echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+   $sql3 = "select * from donner where User='donner' and Blood='B-'";
+            $row3 = mysqli_query($conn, $sql3);
+            $sum = mysqli_num_rows($row3);
+            // $r3 = mysqli_fetch_assoc($row3);
+            // $to_email = $r3['Email'];
+            // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+            while ($r3 = mysqli_fetch_assoc($row3)) {
+                $to_email = $r3['Email'];
+                $name = $r3['Name'];
+                // echo "..$to_email..";
+                // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+                // $to_email = "souradeepsamadder1@gmail.com";
+                $subject ="asking for the blood";
+                $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
+                $headers .= "MIME-version: 1.0\r\n";
+                $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
+                $massage = "<!DOCTYPE html>
+        <html lang='en'>
+
+        <head>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: gray;
+            }
+
+            header {
+                background-color: black;
+                color: white;
+                opacity: .5;
+                padding: 100px;
+                height: auto;
+                width: 600px;
+                margin: auto;
+                border-radius: 30px;
+                border: 2px solid green;
+
+            }
+            p{
+                color:#ffffff;
+            }
+            .hr {
+                height: 2px;
+                border-radius: 40px;
+                background: linear-gradient(to right, #cc99ff 46%, #ff99cc 100%);
+            }
+            @media only screen and (max-width: 600px) {
+                header {
+                    height: 30%;
+                    width: auto;
+                    padding:25px;
+                    font-size: 15px;
+
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <header>
+                <center>
+                    <h1><b> Blood Donation Campaign</b></h1><br>
+                    <div class='hr'></div>
+                    <br>
+                    <p>Hello <b>$name..</b> </p><br>
+                    <p> We hope this mail finds you and your loved ones, safe and healthy. </p><br>
+                    <p> We just wanted to give you some information about blood donation.</p><br>
+                    <p> Let us together donate our blood to help the others. A little act goes a long way!</p><br>
+                    <p> $noti</p></br>
+                    <p><b><u> Date: $date</u></b></p><br>
+                    <p><b><u>Time: $time onwards</u></b></p><br>
+                    <p><b><u>Venue: $venue</u></b></p><br>
+
+                    <div class='hr'></div>
+                    <br>
+                    <p>Contact: 8101008843,8637571875</p>
+                    <p>Mail: snehamajumder12318@gmail.com,<br></p>
+                    <p>souradeepsamadder1@gmail.com </p>
+                    </div>
+                </center>
+            </header>
+        </body>
+
+        </html>";
+                if (mail($to_email, $subject, $massage, $headers)) {
+                    // echo "mail send success";
+                } else {
+                    echo "mail not send";
+                }
+            }
         } elseif ($blood_group == "O+") {
-            echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+            // echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+   $sql3 = "select * from donner where User='donner' and Blood='O+'";
+            $row3 = mysqli_query($conn, $sql3);
+            $sum = mysqli_num_rows($row3);
+            // $r3 = mysqli_fetch_assoc($row3);
+            // $to_email = $r3['Email'];
+            // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+            while ($r3 = mysqli_fetch_assoc($row3)) {
+                $to_email = $r3['Email'];
+                $name = $r3['Name'];
+                // echo "..$to_email..";
+                // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+                // $to_email = "souradeepsamadder1@gmail.com";
+                $subject ="asking for the blood";
+                $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
+                $headers .= "MIME-version: 1.0\r\n";
+                $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
+                $massage = "<!DOCTYPE html>
+        <html lang='en'>
+
+        <head>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: gray;
+            }
+
+            header {
+                background-color: black;
+                color: white;
+                opacity: .5;
+                padding: 100px;
+                height: auto;
+                width: 600px;
+                margin: auto;
+                border-radius: 30px;
+                border: 2px solid green;
+
+            }
+            p{
+                color:#ffffff;
+            }
+            .hr {
+                height: 2px;
+                border-radius: 40px;
+                background: linear-gradient(to right, #cc99ff 46%, #ff99cc 100%);
+            }
+            @media only screen and (max-width: 600px) {
+                header {
+                    height: 30%;
+                    width: auto;
+                    padding:25px;
+                    font-size: 15px;
+
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <header>
+                <center>
+                    <h1><b> Blood Donation Campaign</b></h1><br>
+                    <div class='hr'></div>
+                    <br>
+                    <p>Hello <b>$name..</b> </p><br>
+                    <p> We hope this mail finds you and your loved ones, safe and healthy. </p><br>
+                    <p> We just wanted to give you some information about blood donation.</p><br>
+                    <p> Let us together donate our blood to help the others. A little act goes a long way!</p><br>
+                    <p> $noti</p></br>
+                    <p><b><u> Date: $date</u></b></p><br>
+                    <p><b><u>Time: $time onwards</u></b></p><br>
+                    <p><b><u>Venue: $venue</u></b></p><br>
+
+                    <div class='hr'></div>
+                    <br>
+                    <p>Contact: 8101008843,8637571875</p>
+                    <p>Mail: snehamajumder12318@gmail.com,<br></p>
+                    <p>souradeepsamadder1@gmail.com </p>
+                    </div>
+                </center>
+            </header>
+        </body>
+
+        </html>";
+                if (mail($to_email, $subject, $massage, $headers)) {
+                    // echo "mail send success";
+                } else {
+                    echo "mail not send";
+                }
+            }
         } elseif ($blood_group == "O-") {
-            echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+            // echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+   $sql3 = "select * from donner where User='donner' and Blood='O-'";
+            $row3 = mysqli_query($conn, $sql3);
+            $sum = mysqli_num_rows($row3);
+            // $r3 = mysqli_fetch_assoc($row3);
+            // $to_email = $r3['Email'];
+            // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+            while ($r3 = mysqli_fetch_assoc($row3)) {
+                $to_email = $r3['Email'];
+                $name = $r3['Name'];
+                // echo "..$to_email..";
+                // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+                // $to_email = "souradeepsamadder1@gmail.com";
+                $subject ="asking for the blood";
+                $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
+                $headers .= "MIME-version: 1.0\r\n";
+                $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
+                $massage = "<!DOCTYPE html>
+        <html lang='en'>
+
+        <head>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: gray;
+            }
+
+            header {
+                background-color: black;
+                color: white;
+                opacity: .5;
+                padding: 100px;
+                height: auto;
+                width: 600px;
+                margin: auto;
+                border-radius: 30px;
+                border: 2px solid green;
+
+            }
+            p{
+                color:#ffffff;
+            }
+            .hr {
+                height: 2px;
+                border-radius: 40px;
+                background: linear-gradient(to right, #cc99ff 46%, #ff99cc 100%);
+            }
+            @media only screen and (max-width: 600px) {
+                header {
+                    height: 30%;
+                    width: auto;
+                    padding:25px;
+                    font-size: 15px;
+
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <header>
+                <center>
+                    <h1><b> Blood Donation Campaign</b></h1><br>
+                    <div class='hr'></div>
+                    <br>
+                    <p>Hello <b>$name..</b> </p><br>
+                    <p> We hope this mail finds you and your loved ones, safe and healthy. </p><br>
+                    <p> We just wanted to give you some information about blood donation.</p><br>
+                    <p> Let us together donate our blood to help the others. A little act goes a long way!</p><br>
+                    <p> $noti</p></br>
+                    <p><b><u> Date: $date</u></b></p><br>
+                    <p><b><u>Time: $time onwards</u></b></p><br>
+                    <p><b><u>Venue: $venue</u></b></p><br>
+
+                    <div class='hr'></div>
+                    <br>
+                    <p>Contact: 8101008843,8637571875</p>
+                    <p>Mail: snehamajumder12318@gmail.com,<br></p>
+                    <p>souradeepsamadder1@gmail.com </p>
+                    </div>
+                </center>
+            </header>
+        </body>
+
+        </html>";
+                if (mail($to_email, $subject, $massage, $headers)) {
+                    // echo "mail send success";
+                } else {
+                    echo "mail not send";
+                }
+            }
         } elseif ($blood_group == "AB+") {
-            echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+            // echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+   $sql3 = "select * from donner where User='donner' and Blood='AB+'";
+            $row3 = mysqli_query($conn, $sql3);
+            $sum = mysqli_num_rows($row3);
+            // $r3 = mysqli_fetch_assoc($row3);
+            // $to_email = $r3['Email'];
+            // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+            while ($r3 = mysqli_fetch_assoc($row3)) {
+                $to_email = $r3['Email'];
+                $name = $r3['Name'];
+                // echo "..$to_email..";
+                // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+                // $to_email = "souradeepsamadder1@gmail.com";
+                $subject ="asking for the blood";
+                $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
+                $headers .= "MIME-version: 1.0\r\n";
+                $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
+                $massage = "<!DOCTYPE html>
+        <html lang='en'>
+
+        <head>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: gray;
+            }
+
+            header {
+                background-color: black;
+                color: white;
+                opacity: .5;
+                padding: 100px;
+                height: auto;
+                width: 600px;
+                margin: auto;
+                border-radius: 30px;
+                border: 2px solid green;
+
+            }
+            p{
+                color:#ffffff;
+            }
+            .hr {
+                height: 2px;
+                border-radius: 40px;
+                background: linear-gradient(to right, #cc99ff 46%, #ff99cc 100%);
+            }
+            @media only screen and (max-width: 600px) {
+                header {
+                    height: 30%;
+                    width: auto;
+                    padding:25px;
+                    font-size: 15px;
+
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <header>
+                <center>
+                    <h1><b> Blood Donation Campaign</b></h1><br>
+                    <div class='hr'></div>
+                    <br>
+                    <p>Hello <b>$name..</b> </p><br>
+                    <p> We hope this mail finds you and your loved ones, safe and healthy. </p><br>
+                    <p> We just wanted to give you some information about blood donation.</p><br>
+                    <p> Let us together donate our blood to help the others. A little act goes a long way!</p><br>
+                    <p> $noti</p></br>
+                    <p><b><u> Date: $date</u></b></p><br>
+                    <p><b><u>Time: $time onwards</u></b></p><br>
+                    <p><b><u>Venue: $venue</u></b></p><br>
+
+                    <div class='hr'></div>
+                    <br>
+                    <p>Contact: 8101008843,8637571875</p>
+                    <p>Mail: snehamajumder12318@gmail.com,<br></p>
+                    <p>souradeepsamadder1@gmail.com </p>
+                    </div>
+                </center>
+            </header>
+        </body>
+
+        </html>";
+                if (mail($to_email, $subject, $massage, $headers)) {
+                    // echo "mail send success";
+                } else {
+                    echo "mail not send";
+                }
+            }
         } elseif ($blood_group == "AB-") {
-            echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+            // echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
+   $sql3 = "select * from donner where User='donner' and Blood='AB-'";
+            $row3 = mysqli_query($conn, $sql3);
+            $sum = mysqli_num_rows($row3);
+            // $r3 = mysqli_fetch_assoc($row3);
+            // $to_email = $r3['Email'];
+            // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+            while ($r3 = mysqli_fetch_assoc($row3)) {
+                $to_email = $r3['Email'];
+                $name = $r3['Name'];
+                // echo "..$to_email..";
+                // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
+                // $to_email = "souradeepsamadder1@gmail.com";
+                $subject ="asking for the blood";
+                $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
+                $headers .= "MIME-version: 1.0\r\n";
+                $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
+                $massage = "<!DOCTYPE html>
+        <html lang='en'>
+
+        <head>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: gray;
+            }
+
+            header {
+                background-color: black;
+                color: white;
+                opacity: .5;
+                padding: 100px;
+                height: auto;
+                width: 600px;
+                margin: auto;
+                border-radius: 30px;
+                border: 2px solid green;
+
+            }
+            p{
+                color:#ffffff;
+            }
+            .hr {
+                height: 2px;
+                border-radius: 40px;
+                background: linear-gradient(to right, #cc99ff 46%, #ff99cc 100%);
+            }
+            @media only screen and (max-width: 600px) {
+                header {
+                    height: 30%;
+                    width: auto;
+                    padding:25px;
+                    font-size: 15px;
+
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <header>
+                <center>
+                    <h1><b> Blood Donation Campaign</b></h1><br>
+                    <div class='hr'></div>
+                    <br>
+                    <p>Hello <b>$name..</b> </p><br>
+                    <p> We hope this mail finds you and your loved ones, safe and healthy. </p><br>
+                    <p> We just wanted to give you some information about blood donation.</p><br>
+                    <p> Let us together donate our blood to help the others. A little act goes a long way!</p><br>
+                    <p> $noti</p></br>
+                    <p><b><u> Date: $date</u></b></p><br>
+                    <p><b><u>Time: $time onwards</u></b></p><br>
+                    <p><b><u>Venue: $venue</u></b></p><br>
+
+                    <div class='hr'></div>
+                    <br>
+                    <p>Contact: 8101008843,8637571875</p>
+                    <p>Mail: snehamajumder12318@gmail.com,<br></p>
+                    <p>souradeepsamadder1@gmail.com </p>
+                    </div>
+                </center>
+            </header>
+        </body>
+
+        </html>";
+                if (mail($to_email, $subject, $massage, $headers)) {
+                    // echo "mail send success";
+                } else {
+                    echo "mail not send";
+                }
+            }
         }
     }
     //
