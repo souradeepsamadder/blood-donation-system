@@ -2,10 +2,11 @@
 include("../project/hospital_header.php");
 $hospital = $_SESSION["hospital"];
 
-$sql12 = "select * from hospital where Slno='$hospital'";
-$result3 = (mysqli_query($conn, $sql12));
-$data3 = mysqli_fetch_assoc($result3);
-// echo $data3['Slno'];
+// $sql12 = "select * from hospital where Slno='$hospital'";
+// $result3 = (mysqli_query($conn, $sql12));
+// $data3 = mysqli_fetch_assoc($result3);
+// $hospital = $data3['Slno'];
+// echo $hospital;
 date_default_timezone_set('Asia/Kolkata');
 $dt = date("Y-m-d");
 $ti = date("H:i:s");
@@ -121,17 +122,18 @@ if (isset($_POST['add'])) {
     $department = $_POST['place'];
     $blood_group = $_POST['blood_group'];
     // echo ",noti:-$noti,date:-$date,time:-$time,vanue:-$venue,place$place,Blood_group$blood_group";
+    $sql = "insert into hospital_notice values('','$hospital','$title','$noti','$date','$time','$venue','$department','$blood_group','$dt','$ti')";
+    if (mysqli_query($conn, $sql)) {
+        echo "<script type='text/javascript'>alert('The notice has been send');</script>";
+    } else {
+        echo "<script type='text/javascript'>alert('The notice has not been send');</script>";
 
-    // $sql = "insert into camp_notice values('','$camp','$title','$noti','$date','$time','$venue','$dt','$ti')";
-    // if (mysqli_query($conn, $sql)) {
-    //     echo "<script type='text/javascript'>alert('The notice has been send');</script>";
-    // } else {
-    //     echo "<script type='text/javascript'>alert('The notice has not been send');</script>";
-    // }
-
+    }
     if ($department == 'Donor') {
+       
         // echo "<script type='text/javascript'>alert('name of the department is :- $department and the blood group is:- $blood_group');</script>";
         if ($blood_group == 'A+') {
+            
             $sql3 = "select * from donner where User='donner' and Blood='A+'";
             $row3 = mysqli_query($conn, $sql3);
             $sum = mysqli_num_rows($row3);
@@ -145,6 +147,7 @@ if (isset($_POST['add'])) {
                 // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
                 // $to_email = "souradeepsamadder1@gmail.com";
                 $subject ="asking for the blood";
+                set_time_limit(300);
                 $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
                 $headers .= "MIME-version: 1.0\r\n";
                 $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
@@ -242,6 +245,7 @@ if (isset($_POST['add'])) {
                 // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
                 // $to_email = "souradeepsamadder1@gmail.com";
                 $subject ="asking for the blood";
+                set_time_limit(300);
                 $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
                 $headers .= "MIME-version: 1.0\r\n";
                 $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
@@ -340,6 +344,7 @@ if (isset($_POST['add'])) {
                 // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
                 // $to_email = "souradeepsamadder1@gmail.com";
                 $subject ="asking for the blood";
+                set_time_limit(300);
                 $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
                 $headers .= "MIME-version: 1.0\r\n";
                 $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
@@ -437,6 +442,7 @@ if (isset($_POST['add'])) {
                 // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
                 // $to_email = "souradeepsamadder1@gmail.com";
                 $subject ="asking for the blood";
+                set_time_limit(300);
                 $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
                 $headers .= "MIME-version: 1.0\r\n";
                 $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
@@ -534,6 +540,7 @@ if (isset($_POST['add'])) {
                 // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
                 // $to_email = "souradeepsamadder1@gmail.com";
                 $subject ="asking for the blood";
+                set_time_limit(300);
                 $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
                 $headers .= "MIME-version: 1.0\r\n";
                 $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
@@ -631,6 +638,7 @@ if (isset($_POST['add'])) {
                 // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
                 // $to_email = "souradeepsamadder1@gmail.com";
                 $subject ="asking for the blood";
+                set_time_limit(300);
                 $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
                 $headers .= "MIME-version: 1.0\r\n";
                 $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
@@ -728,6 +736,7 @@ if (isset($_POST['add'])) {
                 // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
                 // $to_email = "souradeepsamadder1@gmail.com";
                 $subject ="asking for the blood";
+                set_time_limit(300);
                 $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
                 $headers .= "MIME-version: 1.0\r\n";
                 $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
@@ -825,6 +834,7 @@ if (isset($_POST['add'])) {
                 // echo "<script type='text/javascript'>alert('sum of the rows $to_email');</script>";
                 // $to_email = "souradeepsamadder1@gmail.com";
                 $subject ="asking for the blood";
+                set_time_limit(300);
                 $headers = "From:send notification  <souradeepsamadder@gmail.com>\r\n";
                 $headers .= "MIME-version: 1.0\r\n";
                 $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
@@ -925,12 +935,15 @@ if (isset($_POST['add'])) {
                     <thead>
                         <tr>
                             <th>Sl No</th>
-                            <th>Camp Name</th>
+                            <th>Hospital Name</th>
                             <th>Title</th>
                             <th>Notice</th>
                             <th>Held Time</th>
-                            <th>held Date</th>
+                            <th>Held Date</th>
                             <th>Venue</th>
+                            <th>Department</th>
+                            <th>Blood Group</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -940,15 +953,15 @@ if (isset($_POST['add'])) {
                         $sq = "select * from hospital_notice ";
                         $cres = mysqli_query($conn, $sq);
                         while ($row = mysqli_fetch_assoc($cres)) {
-                            // $dat = strtotime($row["Date"]);
-                            // $dat1 = date("d-m-Y", $dat);
-                            $name = $row["Cid"];
+                            // $dat = strtotime($row["Held_date"]);
+                            // $date1 = date("d-m-Y", $dat);
+                            // $name = $row["Cid"];
                         ?>
                             <tr>
                                 <td><?php echo $c ?></td>
                                 <td>
                                     <?php
-                                    $sqli = "select Name from camp where Slno='$name'";
+                                    $sqli = "select Name from hospital where Slno='$hospital'";
                                     $row1 = mysqli_query($conn, $sqli);
                                     $result = mysqli_fetch_assoc($row1);
                                     echo $result["Name"]; ?>
@@ -957,7 +970,9 @@ if (isset($_POST['add'])) {
                                 <td><?php echo $row["Notice"]; ?></td>
                                 <td><?php echo $row["Held_date"]; ?></td>
                                 <td><?php echo $row["Held_time"]; ?></td>
-                                <td><?php echo $row["venue"]; ?></td>
+                                <td><?php echo $row["Venue"]; ?></td>
+                                <td><?php echo $row["Department"]; ?></td>
+                                <td><?php echo $row["Blood_group"]; ?></td>
                             </tr>
                         <?php
                             $c++;
@@ -980,7 +995,7 @@ if (isset($_POST['add'])) {
         } else if (str == "All") {
             document.getElementById("blood_group").style.display = "block"
         } else if (str == "Camp") {
-            document.getElementById("blood_group").style.display = "block"
+            document.getElementById("blood_group").style.display = "none"
         } else if (str == "Donor") {
             document.getElementById("blood_group").style.display = "block"
         }
