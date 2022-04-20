@@ -116,7 +116,7 @@ if (empty($_SESSION["hospital"])) {
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="admin.php">
+                <a class="nav-link" href="hospital.php">
                     <img width="25px" src="./image/dashbord2.gif">
                     <span><b>DASHBOARD</b></span>
                 </a>
@@ -126,6 +126,13 @@ if (empty($_SESSION["hospital"])) {
                     <!--<i class="fas fa-fw fa-folder"></i>-->
                     <img width="25px" src="./image/eye.gif">
                     <span><b>NOTICE</b></span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="camp_organize_by_hospital.php">
+                    <!--<i class="fas fa-fw fa-folder"></i>-->
+                    <img width="25px" src="./image/eye.gif">
+                    <span><b>CAMP ORGANIZE</b></span>
                 </a>
             </li>
         </ul>
