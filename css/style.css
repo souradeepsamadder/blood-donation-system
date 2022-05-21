@@ -1,0 +1,494 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    transition: all .2s linear;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    
+}
+html{
+    scroll-behavior: smooth;
+    scrollbar-width: normal;
+    scrollbar-color: #777 #555;
+}
+html::-webkit-scrollbar{
+    width: 14px;
+}
+html::-webkit-scrollbar-thumb{
+    background-color: rgb(224, 170, 170);
+}
+html::-webkit-scrollbar-track{
+    background-color: rgb(71, 72, 71);
+}
+
+
+/* -------------------------------navigation bar section----------------------------------- */
+
+.logo{
+    width: 22%;
+    margin-left: -8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    width: 15%;
+    border: 3px solid black;
+    border-radius: 50px;
+}
+
+header .header-1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    width: 100%;
+    padding: 10px 20px;
+}
+header .header form{
+    display: flex;
+}
+header .header-1 form #search{
+    height: 40px;
+    width: 600px;
+    background: none;
+    outline: none;
+    border: 2px solid crimson;
+    color: #333;
+    padding: 0 10px;
+    font-size: 17px;
+}
+header .header-1 form label{
+    height: 40px;
+    width: 60px;
+    background: crimson;
+    color: #fff;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+}
+header .header-1 form label:hover{
+    color: #fff8;
+}
+header .header-2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: crimson;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 2;
+}
+
+header .header-2 .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+header .header-2 .navbar ul li{
+    margin: 10px;
+    padding: 15px;
+    transition: 1s;
+    
+}
+header .header-2 .navbar ul li:hover{
+    transform: scale(1.6);
+}
+header .header-2 .navbar ul li a{
+    color: #fff;
+    font-size: 20px;
+}
+
+header .header-2 .navbar ul li a:hover{
+    color: #fff8;
+    
+}
+
+header .header-2.sticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 3px 5px #333;
+}
+
+.btn-primary{
+    background: white;
+}
+
+.btn-primary:hover {
+    background-color: #620202;
+    color: #fff;
+    }
+.btn{
+    width: 200px;
+    padding: 8px;
+    margin-top: 0px;
+    float: right;
+    margin: 25px auto 0px auto;
+    color: black;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 1.2px;
+    outline: none;
+    cursor: pointer;
+}
+
+#menu{
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+header .header-2.sticky{
+    position: fixed;
+    top: 0; left: 0;
+    box-shadow: 0 3px 5px #333;
+  }
+  
+  .raise:hover,
+  .raise:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em #000;
+    transform: translateY(-0.25em);
+  }
+
+
+/* ----------------------------sliding section----------------------- */
+
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.swiper{
+    width: 100%;
+    height: fit-content;
+}
+.swiper-slide img{
+    width: 100%;
+    height: 500px;
+}
+.swiper .swiper-button-prev, .swiper .swiper-button-next{
+    color: #fff;
+}
+.swiper .swiper-pagination-bullet-active{
+    background: #fff;
+}
+
+
+/* ----------------------------------marquee--------------------------------- */
+
+
+.marquee{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 1cm;
+    background-color: #d2cdcd7b;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.marquee div{
+    font-size: -5rem;
+    font-family: verdana;
+    animation: animate 13s linear infinite;
+    padding-left: 100%;
+    display: inline-block;
+}
+
+@keyframes animate{
+    100%{
+        transform: translate(-100%,0);
+    }
+}
+
+
+/* ------------------------------------about us-------------------------------------- */
+
+.section1 {
+    width: 100%;
+    height: 80vh;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.content-section {
+    float: left;
+    width: 55%;
+}
+
+.image-section {
+    float: right;
+    width: 40%;
+    margin-top: 40px;
+}
+
+.image-section img {
+    width: 110%;
+    height: auto;
+}
+
+.content-section .title {
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+.content-section .content h3 {
+    margin-top: 20px;
+    color: #5d5d5d;
+    font-size: 21px;
+}
+
+.content-section .content {
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.content-section .content .read-more-btn {
+    margin-top: 30px;
+}
+
+.content-section .content .read-more-btn {
+    background-color: crimson;
+    padding: 12px 40px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+    border: none;
+}
+
+.moreText {
+    display: none;
+}
+
+.content-section .content .read-more-btn:hover {
+    background-color: #620202;
+    color: #fff;
+}
+
+.text.show-more .moreText {
+    display: inline;
+}
+
+.text.show-more .dots {
+    display: none;
+}
+
+/* -------------------------------camp and hospital--------------------------------- */
+
+
+
+section{
+    height: auto;
+}
+.heading{
+    background-color: #cb202d;
+    color: #ffffff;
+    margin-bottom: 30px;
+    padding: 30px 0;
+    grid-column: 1/-1;
+    text-align: center;
+}
+
+.comment{
+    width: 100%;
+    height: 400px;
+    background-color: #f2f2f2;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    overflow: scroll;
+}
+.grid_container{
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+.grid_item{
+    height: auto;
+    width: 102%;
+    background-color: #f2f2f2;
+    margin: 10px;
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    transform: 1s;
+}
+.grid_item .about_cou .p{
+    text-align: left;
+}
+
+.grid_item:hover{
+    text-decoration: none;
+    color: grey;
+    transform: scale(1.10);
+    background: #9b9695;
+}
+.about_cou{
+    height: 157px;
+}
+.p{
+    color: black;
+    font-size: 1rem;
+}
+
+
+
+
+/* ----------------------------------contact us------------------------------------ */
+
+
+
+.container1{
+    width: 85%;
+    max-width: 600px;
+    position: absolute;
+    top: 323%;
+    left: 25%;
+    transform: translate(-50%,-50%);
+    align-items: center;
+    padding: 30px 40px;
+    border-radius: 8px;
+    text-align: center;
+    
+}
+.contact_box{
+    max-width: 850px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
+}
+.box{
+    padding: 25px 40px;
+    width: 13cm;
+    
+}
+.h2{
+    padding: relative;
+    padding: 0 0 10px;
+    margin-bottom: 10px;
+}
+.field{
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    outline: none;
+    background-color: rgba(230, 230, 230, 0.6);
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    transition: .3s;
+}
+.field:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+textarea{
+    min-height: 150px;
+}
+
+.field:focus{
+    border: 2px solid red;
+} 
+.button{
+    height: 30px;
+}
+.contact_box .box .button a{
+    background-color: crimson;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+}
+.contact_box .box .button a:hover{
+    background-color: #620202;
+    color: #fff;
+}
+
+
+.background {
+    background: url(../image/bg2.jpg);
+    background-size: cover;
+
+}
+
+
+/* ---------------------------------footer----------------------------- */
+
+
+.inner-footer{
+    margin: 0;
+    padding: 0;
+    background-color: #272727;
+}
+.social-links ul{
+    padding: 20px;
+    display: flex;
+    width: 300px;
+    height: 30px;
+    margin: auto;
+}
+.social-items{
+    list-style: none;
+}
+.social-items a{
+    padding: 10px 20px;
+    font-size: 35px;
+    color: #6cccc6;
+    transition: all .25s;
+}
+
+.social-items a:hover{
+    color: #54a39e;
+}
+
+.quick-links{
+    display: flex;
+    width: 560px;
+    height: 70px;
+    margin: auto;
+}
+.quick-links ul{
+    display: flex;
+}
+.quick-items{
+    list-style: none;
+}
+.quick-items a{
+    text-decoration: none;
+    padding: 0px 15px;
+    font-size: 20px;
+    color: white;
+    transition: all .25s;
+}
+
+.quick-items a:hover{
+    color: #6cccc6;
+}

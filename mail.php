@@ -5,9 +5,9 @@ i will have to do this befor sleeping 😊-->
 
 <?php
 // $body = "./body.php";
-// $to_email = "snehamajumder12318@gmail.com";
+$to_email = "snehamajumder12318@gmail.com";
 // $to_email = "Suchismitaghosh0101@gmail.com";
-$to_email = "souradeepsamadder1@gmail.com";
+// $to_email = "souradeepsamadder1@gmail.com";
 // $to_email = "souradeepsamadder1@gmail.com";
 // anandagopaldutta1@gmail.com
 // $to_email="soumilighosh120@gmail.com";
@@ -127,78 +127,7 @@ $headers .= "content-Type:text/html;charset=IOS-8859-1\r\n";
 
 
 // for the donner notification.
-$massage = "<!DOCTYPE html>
-<html lang='en'>
-
-<head>
-  
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        background-color: gray;
-    }
-
-    header {
-        background-color: black;
-        color: white;
-        opacity: .5;
-        padding: 100px;
-        height: auto;
-        width: 600px;
-        margin: auto;
-        border-radius: 30px;
-        border: 2px solid green;
-
-    }
-    p{
-        color:#ffffff;
-    }
-    .hr {
-        height: 2px;
-        border-radius: 40px;
-        background: linear-gradient(to right, #cc99ff 46%, #ff99cc 100%);
-    }
-    @media only screen and (max-width: 600px) {
-        header {
-            height: 30%;
-            width: auto;
-            padding:25px;
-            font-size: 15px;
-
-        }
-    }
-</style>
-</head>
-
-<body>
-    <header>
-        <center>
-            <h1><b> Blood Donation Campaign</b></h1><br>
-            <div class='hr'></div>
-            <br>
-            <p>Hello Sneha! </p><br>
-            <p> We hope this mail finds you and your loved ones, safe and healthy. </p><br>
-            <p> We just wanted to give you some information about blood donation.</p><br>
-            <p> Let us together donate our blood to help the others. A little act goes a long way!</p><br>
-            <p><b><u> Date: 22nd February, 2022(Tuesday)</u></b></p><br>
-            <p><b><u>Time: 10.00 am onwards</u></b></p><br>
-            <p><b><u>Venue: DSP Hospital Blood Bank</u></b></p><br>
-
-            <div class='hr'></div>
-            <br>
-            <p>Contact: 8101008843,8637571875</p>
-            <p>Mail: snehamajumder12318@gmail.com,<br></p>
-            <p>souradeepsamadder1@gmail.com </p>
-            </div>
-        </center>
-    </header>
-</body>
-
-</html>";
+$massage = "hiii";
 if (mail($to_email, $subject, $massage, $headers)) {
     echo "mail send success";
 } else {
